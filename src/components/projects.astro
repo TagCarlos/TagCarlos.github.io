@@ -1,13 +1,12 @@
 ---
 import { Image } from "astro:assets";
-import Aroundthemx from "/Aroundthemx.png"
-import narcisaPreview from "/narcisaPreview.png"
+import Aroundthemx from "../assets/Aroundthemx.png"; 
+import narcisaPreview from "../assets/narcisaPreview.png";
 
 interface Project {
   title: string;
   image: ImageMetadata;
   link: string;
-  preview: string;
   status?: string;
 }
 
