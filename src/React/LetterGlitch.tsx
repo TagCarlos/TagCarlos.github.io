@@ -279,13 +279,21 @@ const LetterGlitch = ({
 
   return (
     <div className="relative w-full h-full bg-[#101010] overflow-hidden">
-      <canvas ref={canvasRef} className="block w-full h-full" />
+      <h2 className="text-[var(--white)] text-3xl md:text-4xl font-semibold md:mb-6">
+        Hola, soy un Desarrollador Web
+      </h2>
+      <h3 className="text-md md:text-2xl text-[var(--white-icon)]">
+        Me especializo en el lado que el cliente puede ver, la capa que los
+        usuarios tocan e interactúan. Disfruto convertir diseños en experiencias
+        reales, cuidando cada detalle.
+      </h3>
+      {/* <canvas ref={canvasRef} className="block w-full h-full" />
       {outerVignette && (
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none bg-[radial-gradient(circle,_rgba(16,16,16,0)_60%,_rgba(16,16,16,1)_100%)]"></div>
       )}
       {centerVignette && (
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none bg-[radial-gradient(circle,_rgba(0,0,0,0.8)_0%,_rgba(0,0,0,0)_60%)]"></div>
-      )}
+      )} */}
     </div>
   );
 };
