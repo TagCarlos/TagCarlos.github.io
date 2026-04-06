@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import Aroundthemx from "../assets/Aroundthemx.png"; 
 import narcisaPreview from "../assets/narcisaPreview.png";
+import Gifweb from "../assets/Gifweb.png";
 
 interface Project {
   title: string;
@@ -22,6 +23,12 @@ const projects: Project[] = [
     image: narcisaPreview as ImageMetadata,
     link: "https://github.com/TagCarlos/Final_Proyect-Frontend",
     status: "Soon",
+  },
+  {
+    title: "Favorite Gifs",
+    image: Gifweb as ImageMetadata,
+    link: "https://cosmic-travesseiro-53959d.netlify.app/",
+    status: "Deployed",
   }
 ];
 ---
