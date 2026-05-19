@@ -9,26 +9,30 @@ interface Project {
   image: ImageMetadata;
   link: string;
   status?: string;
+  description?:string
 }
 
 const projects: Project[] = [
-  {
+  /* {
     title: "Aroundthemx",
     image: Aroundthemx as ImageMetadata,
     link: "https://github.com/TagCarlos/web_project_around",
     status: "Deployed",
-  },
+    description: "hola esta es la descripcion, probando",
+  },*/
    {
     title: "Narcisa",
     image: narcisaPreview as ImageMetadata,
-    link: "https://github.com/TagCarlos/Final_Proyect-Frontend",
+    link: "https://narcisa.netlify.app/",
     status: "Soon",
+    description: "Proyecto para practicar Tailwind, que muestra una landing page de joyeria. Tecnologías: Tailwind",
   },
   {
     title: "Favorite Gifs",
     image: Gifweb as ImageMetadata,
     link: "https://cosmic-travesseiro-53959d.netlify.app/",
     status: "Deployed",
+    description: "Buscador de GIFs con sistema de caché que optimiza el rendimiento evitando solicitudes duplicadas a la API. Incluye historial de búsquedas con navegación instantánea. Tecnologías: TypeScript, API de Giphy, localStorage.",
   }
 ];
 ---
@@ -64,6 +68,7 @@ const projects: Project[] = [
                   <span class="py-1 text-sm text-[var(--white-icon)]">
                     {project.status}
                   </span>
+                  <p>{project.description}<p/>
                 </div>
                 <div class="flex gap-2 ml-auto">
                   <a

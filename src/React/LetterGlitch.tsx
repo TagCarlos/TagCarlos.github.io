@@ -278,14 +278,15 @@ const LetterGlitch = ({
   }, [glitchSpeed, smooth]);
 
   return (
-    <div className="relative w-full h-full bg-[#101010] overflow-hidden">
+    <div className="relative w-full h-full bg-[#101010] overflow-visible">
       <h2 className="text-[var(--white)] text-3xl md:text-4xl font-semibold md:mb-6">
         Hola, soy un Desarrollador Web
       </h2>
       <h3 className="text-md md:text-2xl text-[var(--white-icon)]">
-        Me especializo en el lado que el cliente puede ver, la capa que los
-        usuarios tocan e interactúan. Disfruto convertir diseños en experiencias
-        reales, cuidando cada detalle.
+        Hola, soy un Desarrollador Web especializado en Frontend. Me enfoco en
+        crear interfaces intuitivas que combinan buen diseño con excelente
+        experiencia de usuario. Mi objetivo es crecer hacia roles de mayor
+        responsabilidad técnica donde pueda impactar productos digitales
       </h3>
       {/* <canvas ref={canvasRef} className="block w-full h-full" />
       {outerVignette && (
