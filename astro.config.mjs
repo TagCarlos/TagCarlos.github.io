@@ -1,11 +1,19 @@
 // @ts-check
-import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
+import { defineConfig } from 'astro/config'
+import tailwindcss from '@tailwindcss/vite'
 
-import react from "@astrojs/react";
-
-
+// https://astro.build/config
 export default defineConfig({
+  site: 'https://TagCarlos.github.io',
+  vite: {
+    plugins: [tailwindcss()],
+  },
+})
+
+
+
+
+/* export default defineConfig({
   site: 'https://TagCarlos.github.io',
   integrations: [tailwind(), react()],
   vite: {
@@ -24,4 +32,4 @@ export default defineConfig({
     host: true,
     port: 4321,
   },
-});
+}); */

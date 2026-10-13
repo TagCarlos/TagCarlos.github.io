@@ -1,16 +1,27 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import Nav from "@/components/nav.astro";
-import Home from "@/components/home.astro";
-import Projects from "@/components/projects.astro";
-import Contact from "@/components/contact.astro";
-import Footer from "@/components/footer.astro";
+import Layout from '../layouts/Layout.astro'
+import Contact from '../components/Contact.astro'
+import Container from '../components/Container.astro'
+import Footer from '../components/Footer.astro'
+import Hero from '../components/Hero.astro'
+import Navbar from '../components/Navbar.astro'
+import Projects from '../components/Projects.astro'
+import Services from '../components/Services.astro'
+import TechMarquee from '../components/TechMarquee.astro'
 ---
 
-<Layout title="Portfolio">
-  <Nav />
-  <Home />
-  <Projects />
-  <Contact />
+<Layout>
+  <Navbar />
+  <main>
+    <div id="inicio" class="pt-28 pb-20 md:pt-36 md:pb-28">
+      <Container class="space-y-14 md:space-y-16">
+        <Hero />
+        <TechMarquee />
+        <Services />
+      </Container>
+    </div>
+    <Projects />
+    <Contact />
+  </main>
   <Footer />
 </Layout>

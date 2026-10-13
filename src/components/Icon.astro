@@ -1,0 +1,16 @@
+---
+import icons from '../lib/icons.js'
+
+const { name, class: className = 'size-5' } = Astro.props
+const icon = icons[name]
+
+if (!icon) throw new Error(`Icono desconocido: "${name}". Agrégalo en src/lib/icons.js`)
+---
+
+<svg
+  viewBox={icon.viewBox ?? '0 0 24 24'}
+  class={className}
+  aria-hidden="true"
+  focusable="false"
+  set:html={icon.body}
+/>

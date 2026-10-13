@@ -1,0 +1,25 @@
+---
+const { images = [] } = Astro.props
+---
+
+<ul class="flex flex-col gap-5">
+  {
+    images.map(({ src, alt }, i) => (
+      <li
+        data-reveal
+        style={`transition-delay: ${i * 100}ms`}
+        class="group overflow-hidden rounded-xl border border-white/10 bg-white/[0.02] shadow-xl shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:shadow-accent/10"
+      >
+        <img
+          src={src}
+          alt={alt}
+          width="800"
+          height="500"
+          loading="lazy"
+          decoding="async"
+          class="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+        />
+      </li>
+    ))
+  }
+</ul>

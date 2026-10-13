@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="hsl(345 45% 14%)"/>
+      <stop offset="1" stop-color="#0d0d0d"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#g)"/>
+  <rect width="800" height="36" fill="#ffffff" fill-opacity="0.04"/>
+  <circle cx="22" cy="18" r="5" fill="#ffffff" fill-opacity="0.18"/>
+  <circle cx="40" cy="18" r="5" fill="#ffffff" fill-opacity="0.18"/>
+  <circle cx="58" cy="18" r="5" fill="#ffffff" fill-opacity="0.18"/>
+  <rect x="250" y="10" width="300" height="16" rx="8" fill="#ffffff" fill-opacity="0.06"/>
+  <text x="400" y="262" text-anchor="middle" font-family="Montserrat, system-ui, sans-serif" font-size="34" font-weight="500" fill="#f5f5f5">Narcisa</text>
+  <text x="400" y="298" text-anchor="middle" font-family="Montserrat, system-ui, sans-serif" font-size="15" fill="hsl(345 70% 75%)">Captura 1 · reemplaza este archivo</text>
+</svg>

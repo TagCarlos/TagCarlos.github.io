@@ -1,0 +1,53 @@
+---
+import nav from '../data/nav.js'
+---
+
+<header class="fixed inset-x-0 top-4 z-50 flex justify-center px-4">
+  <nav
+    aria-label="Principal"
+    class="flex items-center gap-1 rounded-full border border-white/10 bg-ink/70 p-1.5 shadow-lg shadow-black/40 backdrop-blur-md"
+  >
+    {
+      nav.map(({ label, href }, i) => (
+        <a
+          href={href}
+          data-nav-link
+          aria-current={i === 0 ? 'location' : undefined}
+          class="group flex items-center gap-2 rounded-full px-4 py-2 text-sm text-neutral-400 transition-all duration-300 hover:bg-white/5 hover:text-white focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:outline-none active:scale-95 aria-[current=location]:text-white"
+        >
+          <span
+            aria-hidden="true"
+            class="size-1.5 scale-0 rounded-full bg-lime-400 opacity-0 transition-all duration-300 group-aria-[current=location]:scale-100 group-aria-[current=location]:opacity-100"
+          />
+          {label}
+        </a>
+      ))
+    }
+  </nav>
+</header>
+
+<script>
+  // Marca como activo el enlace de la sección visible en el centro de la pantalla.
+  const links = [...document.querySelectorAll('[data-nav-link]')]
+
+  const setActive = (id) => {
+    links.forEach((link) => {
+      if (link.hash === `#${id}`) link.setAttribute('aria-current', 'location')
+      else link.removeAttribute('aria-current')
+    })
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(({ isIntersecting, target }) => {
+        if (isIntersecting) setActive(target.id)
+      })
+    },
+    { rootMargin: '-45% 0px -50% 0px' },
+  )
+
+  links.forEach(({ hash }) => {
+    const section = hash && document.querySelector(hash)
+    if (section) observer.observe(section)
+  })
+</script>

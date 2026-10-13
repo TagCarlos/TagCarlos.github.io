@@ -1,0 +1,70 @@
+---
+import Icon from './Icon.astro'
+import ProjectBlock from './ProjectBlock.astro'
+import ProjectGallery from './ProjectGallery.astro'
+import Tag from './Tag.astro'
+
+const { project } = Astro.props
+const { slug, title, status, overview, features, achievements, summary, tech, demo, repo, images } =
+  project
+
+const statuses = {
+  deployed: { label: 'En producción', dot: 'bg-lime-400' },
+  soon: { label: 'Próximamente', dot: 'bg-amber-400' },
+}
+const badge = statuses[status] ?? statuses.soon
+const titleId = `project-${slug}`
+---
+
+<article aria-labelledby={titleId} class="grid gap-10 lg:grid-cols-2 lg:gap-16">
+  <div data-reveal class="flex flex-col gap-7">
+    <header>
+      <span class="inline-flex items-center gap-2 text-xs text-neutral-500">
+        <span aria-hidden="true" class:list={['size-1.5 rounded-full', badge.dot]} />
+        {badge.label}
+      </span>
+      <h3 id={titleId} class="mt-2 text-2xl font-medium tracking-tight text-neutral-100 md:text-3xl">
+        {title}
+      </h3>
+      <ul class="mt-4 flex flex-wrap gap-2" aria-label="Tecnologías">
+        {tech.map((label) => <Tag label={label} />)}
+      </ul>
+    </header>
+
+    <ProjectBlock title="Resumen del proyecto" text={overview} />
+    <ProjectBlock title="Características" items={features} />
+    <ProjectBlock title="Logros clave" items={achievements} />
+    <ProjectBlock title="Conclusión" text={summary} />
+
+    {
+      (demo || repo) && (
+        <footer class="flex items-center gap-3">
+          {demo && (
+            <a
+              href={demo}
+              target="_blank"
+              rel="noreferrer"
+              class="group/link inline-flex items-center gap-2 rounded-full border border-accent/40 px-4 py-2 text-sm text-accent transition-all duration-300 hover:border-accent hover:bg-accent/10 hover:text-white focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:outline-none active:scale-95"
+            >
+              Visitar sitio
+              <Icon name="arrow" class="size-4 transition-transform duration-300 group-hover/link:translate-x-1" />
+            </a>
+          )}
+          {repo && (
+            <a
+              href={repo}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`Código de ${title} en GitHub`}
+              class="flex size-10 items-center justify-center rounded-full border border-white/10 text-neutral-400 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/25 hover:text-white focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:outline-none active:scale-95"
+            >
+              <Icon name="code" class="size-[18px]" />
+            </a>
+          )}
+        </footer>
+      )
+    }
+  </div>
+
+  <ProjectGallery images={images} />
+</article>

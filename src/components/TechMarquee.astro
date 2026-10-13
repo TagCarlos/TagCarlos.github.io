@@ -1,0 +1,23 @@
+---
+import techs from '../data/techs.js'
+import TechBadge from './TechBadge.astro'
+---
+
+<div
+  data-reveal
+  class="group relative overflow-hidden py-4 [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]"
+>
+  <h2 class="sr-only">Tecnologías</h2>
+  <div class="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
+    {
+      /* La lista se duplica para que el desplazamiento sea continuo (-50%). */
+      [false, true].map((isCopy) => (
+        <ul class="flex shrink-0 gap-14 pr-14" aria-hidden={isCopy ? 'true' : undefined}>
+          {techs.map((tech) => (
+            <TechBadge {...tech} />
+          ))}
+        </ul>
+      ))
+    }
+  </div>
+</div>

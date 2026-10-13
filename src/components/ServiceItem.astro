@@ -1,0 +1,36 @@
+---
+import Icon from './Icon.astro'
+
+// `items` es opcional: si existe, se muestra como lista con viñetas bajo la descripción.
+const { title, icon, description, items = [] } = Astro.props
+---
+
+<details
+  class="group rounded-xl border border-white/10 bg-white/[0.02] transition-all duration-300 hover:border-white/20 open:border-accent/30 open:bg-white/[0.04]"
+>
+  <summary
+    class="flex cursor-pointer list-none items-center gap-3 rounded-xl px-4 py-3.5 text-sm text-neutral-200 transition-colors duration-300 select-none hover:text-white focus-visible:ring-2 focus-visible:ring-accent/60 focus-visible:outline-none [&::-webkit-details-marker]:hidden"
+  >
+    <Icon name={icon} class="size-[18px] text-accent" />
+    <span>{title}</span>
+    <Icon
+      name="chevron"
+      class="ml-auto size-4 text-neutral-400 transition-transform duration-300 group-open:rotate-180"
+    />
+  </summary>
+  <div class="px-4 pb-4 pl-[2.875rem] text-sm leading-relaxed text-neutral-400">
+    <p>{description}</p>
+    {
+      items.length > 0 && (
+        <ul class="mt-2 space-y-1.5">
+          {items.map((item) => (
+            <li class="flex gap-3">
+              <span aria-hidden="true" class="mt-2 size-1 shrink-0 rounded-full bg-accent" />
+              {item}
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </div>
+</details>
